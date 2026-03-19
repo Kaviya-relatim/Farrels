@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CARS } from "@/data/cars";
 import BudgetModal from "@/components/home/BudgetModal";
@@ -16,7 +16,7 @@ const YEARS = Array.from({ length: CURRENT_YEAR - 1999 }, (_, i) => CURRENT_YEAR
 // Unique sorted makes
 const ALL_MAKES = [...new Set(CARS.map((c) => c.make))].sort();
 
-export default function UsedCarsPage() {
+function UsedCarsContent() {
   const searchParams = useSearchParams();
 
   // Initialise from URL params (set by home page Search button)
@@ -206,5 +206,13 @@ export default function UsedCarsPage() {
         cars={CARS}
       />
     </main>
+  );
+}
+
+export default function UsedCarsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <UsedCarsContent />
+    </Suspense>
   );
 }

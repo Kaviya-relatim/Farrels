@@ -11,12 +11,12 @@ import { useSavedCars } from "@/contexts/SavedCarsContext";
 
 export default function CarDetailPage() {
   const params = useParams();
-  const id = params.id as string;
+  const id = params.id;
   const car = CARS.find((c) => c.id === id);
   const { isCarSaved, toggleSaveCar } = useSavedCars();
 
   const [activeImage, setActiveImage] = useState(car?.images[0] || "");
-  const [openSections, setOpenSections] = useState<string[]>([]);
+  const [openSections, setOpenSections] = useState([]);
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
 
   if (!car) {
@@ -30,7 +30,7 @@ export default function CarDetailPage() {
     );
   }
 
-  const toggleSection = (sectionId: string) => {
+  const toggleSection = (sectionId) => {
     setOpenSections(prev => 
       prev.includes(sectionId) 
         ? prev.filter(s => s !== sectionId) 
@@ -289,7 +289,7 @@ export default function CarDetailPage() {
                          </div>
                       ) : (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
-                          {Object.entries(section.detail.data as Record<string, string>).map(([key, value]) => (
+                          {Object.entries(section.detail.data).map(([key, value]) => (
                             <div key={key} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0 md:last:border-b md:[&:nth-last-child(2)]:border-b">
                               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{key}</span>
                               <span className="text-sm font-black text-[#1a2b3c]">{value}</span>
