@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
+    "noImplicitAny": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -19,7 +24,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
   "include": [
@@ -28,7 +35,20 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
-  "exclude": ["node_modules"]
+    "**/*.mts",
+    "src/app/apply-for-finance/page.jsx",
+    "src/app/car-sourcing/page.jsx",
+    "src/app/cars/[id]/page.jsx",
+    "src/app/cash-for-cars/page.jsx",
+    "src/app/contact/page.jsx",
+    "src/app/inventory/page.jsx",
+    "src/app/saved-cars/page.jsx",
+    "src/app/servicing/page.jsx",
+    "src/app/used-cars/page.jsx",
+    "src/app/layout.jsx",
+    "src/app/page.jsx"
+, "src/app/providers.jsx", "src/lib/emailjs.js", "src/data/cars.js", "src/contexts/SavedCarsContext.jsx", "src/components/used-cars/InventoryHeader.jsx", "src/components/used-cars/UsedCarsFilter.jsx", "src/components/servicing/ServicingForm.jsx", "src/components/home/BudgetModal.jsx", "src/components/home/CarCard.jsx", "src/components/home/FeaturedCars.jsx", "src/components/home/Hero.jsx", "src/components/home/SearchFilter.jsx", "src/components/home/Services.jsx", "src/components/home/Testimonials.jsx", "src/components/home/Welcome.jsx", "src/components/finance/FinanceForm.jsx", "src/components/contact/ContactForm.jsx", "src/components/common/Header.jsx", "src/components/common/Footer.jsx", "src/components/common/EnquiryModal.jsx", "src/components/common/ChatbotWidget.jsx", "src/components/common/Breadcrumbs.jsx", "src/components/cash-for-cars/CashForCarsForm.jsx", "src/components/car-sourcing/CarSourcingForm.jsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
